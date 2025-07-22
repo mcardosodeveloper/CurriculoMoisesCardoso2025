@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moises Reinaldo Cardoso - Tech Lead Backend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            margin: 20px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: slideIn 0.8s ease-out;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .slide h1 {
+            font-size: 3.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide h2 {
+            font-size: 2.5em;
+            color: #34495e;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .slide h3 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .contact-item i {
+            margin-right: 12px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .tech-category {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .tech-category h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            margin: 25px 0;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            color: #2c3e50;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .highlight-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .navigation {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 20px 10px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-dot {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .slide h1 {
+                font-size: 2.5em;
+            }
+            
+            .slide h2 {
+                font-size: 2em;
+            }
+            
+            .navigation {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Apresentação -->
+        <div class="slide" id="slide1">
+            <div class="slide-header">
+                <h1>Moises Reinaldo Cardoso</h1>
+                <h3>Tech Lead Backend | C# • .NET • Python • Node.js</h3>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📍</i> Santo André – SP
+                </div>
+                <div class="contact-item">
+                    <i>📞</i> (11) 98980-8762
+                </div>
+                <div class="contact-item">
+                    <i>✉️</i> <span style="font-size: 0.9em; word-break: break-all;">mcardosodeveloper@outlook.com</span>
+                </div>
+                <div class="contact-item">
+                    <i>🔗</i> LinkedIn | GitHub
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Anos como Tech Lead</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">PJ/CLT</div>
+                    <div class="stat-label">Disponível</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Perfil Profissional -->
+        <div class="slide" id="slide2">
+            <h2>Perfil Profissional</h2>
+            
+            <div class="highlight-box">
+                <h3>Tech Lead Backend Especialista</h3>
+                <p class="highlight-text">
+                    Profissional com 15 anos de experiência em desenvolvimento de software, sendo os últimos 3 anos como Tech Lead, liderando equipes em projetos backend de alta complexidade, escaláveis e distribuídos.
+                </p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h4>🚀 Especialidades Core</h4>
+                    <p>Forte atuação com .NET / C#, complementada por experiência em Python (FastAPI) e Node.js (NestJS)</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🏗️ Arquitetura Moderna</h4>
+                    <p>Domínio em microsserviços, mensageria (RabbitMQ), observabilidade (Grafana/Loki), cloud (Azure e AWS)</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🤖 Inovação com IA</h4>
+                    <p>Criação de agentes de IA personalizados com ChatGPT e Claude AI para automações inteligentes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Stack Técnica -->
+        <div class="slide" id="slide3">
+            <h2>Stack Técnica</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h4>🔹 Linguagens & Frameworks</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">.NET Core 8</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">NestJS</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">React</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🏗️ Arquitetura & Backend</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Microsserviços</span>
+                        <span class="skill-tag">APIs REST</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">Clean Architecture</span>
+                        <span class="skill-tag">DDD</span>
+                        <span class="skill-tag">CQRS</span>
+                        <span class="skill-tag">SOLID</span>
+                        <span class="skill-tag">TDD</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🤖 IA & Automação</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">Claude AI</span>
+                        <span class="skill-tag">OpenAI API</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">Webhooks</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>☁️ DevOps & Cloud</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>📊 Observabilidade</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">Loki</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Serilog</span>
+                        <span class="skill-tag">ELK</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🗄️ Banco de Dados</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Experiência Profissional -->
+        <div class="slide" id="slide4">
+            <h2>Experiência Profissional</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">06/2021 – Atual</div>
+                    <div class="timeline-title">RDC Viagens – Tech Lead</div>
+                    <div class="timeline-description">
+                        • Liderança técnica, arquitetura de microsserviços e mentoria<br>
+                        • Projetos com RabbitMQ, Redis, MongoDB e observabilidade com Grafana<br>
+                        • Implementação de agentes com IA generativa (ChatGPT/Claude AI) para automações internas<br>
+                        • Migração e modernização de sistemas legados .NET Framework → .NET 8
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">12/2019 – 06/2021</div>
+                    <div class="timeline-title">CVC Corp – Analista de Sistemas</div>
+                    <div class="timeline-description">
+                        • Desenvolvimento de sistemas financeiros e automações com .NET Core<br>
+                        • Integração bancária e relatórios com Oracle
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">11/2012 – 12/2019</div>
+                    <div class="timeline-title">Grupo SP Imóvel – Analista de Sistemas Pleno</div>
+                    <div class="timeline-description">
+                        • Portal imobiliário com MVC, integrações XML e app mobile com Node.js<br>
+                        • 7 anos de crescimento e evolução técnica constante
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Liderança e Soft Skills -->
+        <div class="slide" id="slide5">
+            <h2>Liderança Técnica & Soft Skills</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h4>👥 Mentoria & Desenvolvimento</h4>
+                    <p>Mentoria de desenvolvedores e code reviews constantes, focando no crescimento da equipe</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🏗️ Arquitetura & Padrões</h4>
+                    <p>Definição de arquitetura e padrões de projeto para garantir qualidade e escalabilidade</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🤝 Colaboração Cross-Functional</h4>
+                    <p>Forte colaboração com produto, QA e arquitetura para entregas de valor</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🎯 Liderança Ágil</h4>
+                    <p>Liderança técnica de squads ágeis utilizando metodologias Scrum/Kanban</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🔍 Cultura de Qualidade</h4>
+                    <p>Promoção de cultura de qualidade, testes, CI/CD e observabilidade</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>📊 Visão Sistêmica</h4>
+                    <p>Foco em performance, monitoramento contínuo e entrega de valor ao negócio</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Formação e Certificações -->
+        <div class="slide" id="slide6">
+            <h2>Formação & Certificações</h2>
+            
+            <div class="highlight-box">
+                <h3>🎓 Formação Acadêmica</h3>
+                <p class="highlight-text">
+                    Tecnólogo em Análise e Desenvolvimento de Sistemas<br>
+                    Anhanguera Educacional
+                </p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h4>📚 Principais Certificações</h4>
+                    <p>• .NET Core com DDD na prática – Udemy<br>
+                    • Desenvolvimento Fullstack com ASP.NET Core + Angular<br>
+                    • Curso completo NodeJS + MongoDB<br>
+                    • Git e GitHub para Iniciantes</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h4>🌐 Idiomas</h4>
+                    <p><strong>Inglês:</strong> Leitura (Intermediário), Escrita/Conversação (Iniciante)<br>
+                    <strong>Espanhol:</strong> Conversação (Intermediário), Escrita (Básico)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Call to Action -->
+        <div class="slide" id="slide7">
+            <div class="cta-section">
+                <h2 style="color: white; margin-bottom: 30px;">Vamos Conversar?</h2>
+                <p style="font-size: 1.3em; margin-bottom: 30px; color: #ecf0f1;">
+                    Pronto para liderar seu próximo projeto backend com tecnologias modernas e soluções inovadoras<br>
+                    <strong>Disponível para PJ ou CLT</strong>
+                </p>
+                
+                <div style="margin: 30px 0;">
+                    <a href="tel:11989808762" class="cta-button">📞 (11) 98980-8762</a>
+                    <a href="mailto:mcardosodeveloper@outlook.com" class="cta-button">✉️ Enviar Email</a>
+                </div>
+                
+                <div class="stats-container" style="margin-top: 40px;">
+                    <div class="stat-card" style="background: rgba(255,255,255,0.1);">
+                        <div class="stat-number">R$ 16k</div>
+                        <div class="stat-label">Pacote Atual (PJ)</div>
+                    </div>
+                    <div class="stat-card" style="background: rgba(255,255,255,0.1);">
+                        <div class="stat-number">Híbrido</div>
+                        <div class="stat-label">Modelo de Trabalho</div>
+                    </div>
+                    <div class="stat-card" style="background: rgba(255,255,255,0.1);">
+                        <div class="stat-number">SP</div>
+                        <div class="stat-label">Localização</div>
+                    </div>
+                    <div class="stat-card" style="background: rgba(255,255,255,0.1);">
+                        <div class="stat-number">PJ/CLT</div>
+                        <div class="stat-label">Formato</div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; opacity: 0.8;">
+                    📞 Referências Disponíveis:<br>
+                    Rafael Anjos – Arquiteto, RDC Viagens<br>
+                    Augusto Menin – DevOps, RDC Viagens
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <span class="nav-dot active" onclick="scrollToSlide(1)"></span>
+        <span class="nav-dot" onclick="scrollToSlide(2)"></span>
+        <span class="nav-dot" onclick="scrollToSlide(3)"></span>
+        <span class="nav-dot" onclick="scrollToSlide(4)"></span>
+        <span class="nav-dot" onclick="scrollToSlide(5)"></span>
+        <span class="nav-dot" onclick="scrollToSlide(6)"></span>
+        <span class="nav-dot" onclick="scrollToSlide(7)"></span>
+    </div>
+
+    <script>
+        function scrollToSlide(slideNumber) {
+            const slide = document.getElementById(`slide${slideNumber}`);
+            slide.scrollIntoView({ behavior: 'smooth' });
+            
+            // Update active dot
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideNumber - 1);
+            });
+        }
+
+        // Update active dot on scroll
+        window.addEventListener('scroll', () => {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            let currentSlide = 0;
+            slides.forEach((slide, index) => {
+                const rect = slide.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    currentSlide = index;
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        });
+
+        // Add smooth scrolling animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.slide').forEach((slide) => {
+            observer.observe(slide);
+        });
+    </script>
+</body>
+</html>
